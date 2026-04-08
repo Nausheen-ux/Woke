@@ -1,0 +1,51 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+*:focus        { outline: none !important; }
+*:focus-visible{ outline: none !important; }
+button         { outline: none !important; -webkit-tap-highlight-color: transparent; }
+
+html, body, #root {
+  width: 100%;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+body {
+  font-family: 'Space Mono', monospace;
+}
+
+/* Palette CSS variables — swapped by usePalette */
+:root {
+  --pal-bg1:    #FF2DAF;
+  --pal-bg2:    #FF6EC7;
+  --pal-bg3:    #FFD700;
+  --pal-bg4:    #FF8C00;
+  --pal-bg5:    #87CEEB;
+  --pal-beam:   #FFFFFF;
+  --pal-accent: #FF2DAF;
+  --spin-speed: 0.028;
+}
+
+/* ── Dancing dots (appear on play) ── */
+.dot {
+  position: fixed;
+  z-index: 1;
+  pointer-events: none;
+  border-radius: 50%;
+  opacity: 0;
+  transition: opacity 0.5s;
+  animation: dotDance 1.5s ease-in-out infinite alternate;
+}
+.dots-on .dot { opacity: 1; }
+@keyframes dotDance {
+  from { transform: translate(0, 0) scale(1); }
+  to   { transform: translate(var(--dx), var(--dy)) scale(1.8); }
+}
