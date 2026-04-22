@@ -296,7 +296,7 @@ export default function Player() {
               x="170" y="95"
               textAnchor="middle"
               fontFamily="'Pacifico', 'Lobster', 'Dancing Script', cursive"
-              fontSize="120"
+              fontSize="88"
               fontWeight="400"
               fill="url(#wokeGrad)"
               stroke="white"
@@ -360,28 +360,11 @@ export default function Player() {
           onChange={e => { const f = e.target.files?.[0]; if (f) handleFileLoad(f) }}
         />
 
-        {/* Temp palette test — remove after confirming colors work */}
-        <div style={{ display:'flex', gap:'0.5rem', marginTop:'0.5rem', flexWrap:'wrap', justifyContent:'center' }}>
-          {['pop','chill','hiphop','electronic','classical'].map(key => (
-            <button
-              key={key}
-              tabIndex={-1}
-              onClick={() => setPaletteByGenre(key)}
-              style={{
-                fontFamily:'"Space Mono",monospace', fontSize:'0.6rem',
-                padding:'0.3rem 0.7rem', borderRadius:'999px', cursor:'pointer',
-                border:'1px solid rgba(255,255,255,0.4)', background:'rgba(0,0,0,0.3)',
-                color:'#fff', textTransform:'uppercase', letterSpacing:'0.1em'
-              }}
-            >{key}</button>
-          ))}
-        </div>
-
         {/* Analysing indicator — shows for first 5 seconds of any song */}
         {isAnalysing && (
           <p style={{
             fontFamily: '"Space Mono", monospace',
-            fontSize: '0.rem',
+            fontSize: '0.6rem',
             color: 'rgba(255,255,255,0.6)',
             letterSpacing: '0.2em',
             marginTop: '0.4rem',
